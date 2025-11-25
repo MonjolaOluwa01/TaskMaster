@@ -7,12 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function setCopy(tab) {
     if (tab === "signup") {
       title.textContent = "Join TaskMaster";
-      subtitle.textContent =
-        "Create an account to boost your productivity";
+      subtitle.textContent = "Create an account to boost your productivity";
     } else {
       title.textContent = "Welcome Back!";
-      subtitle.textContent =
-        "Enter your details to access your account";
+      subtitle.textContent = "Enter your details to access your account";
     }
   }
 
@@ -36,17 +34,5 @@ document.addEventListener("DOMContentLoaded", () => {
       activate(tabEl.dataset.tab);
     });
   });
-
-  // demo submit handler (no backend yet)
-  document.addEventListener("submit", (e) => {
-    const form = e.target;
-    if (!form.classList.contains("auth-form")) return;
-
-    e.preventDefault();
-    const data = Object.fromEntries(new FormData(form));
-    console.log("Submitted:", data);
-
-    form.classList.add("is-submitted");
-    setTimeout(() => form.classList.remove("is-submitted"), 400);
-  });
 });
+
