@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TaskMaster – Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <script src="js/auth.js" defer></script>
+    <script src="js/dashboard.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="sidebar__header">
+          <div class="app-logo app-logo--sidebar">
+            <div class="app-logo__square">
+              <svg
+                viewBox="0 0 40 40"
+                class="app-logo__svg"
+                aria-hidden="true"
+              >
+                <defs>
+                  <linearGradient id="lgDash" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#316BFF" />
+                    <stop offset="100%" stop-color="#7B3EFF" />
+                  </linearGradient>
+                </defs>
+                <rect
+                  x="4"
+                  y="4"
+                  width="32"
+                  height="32"
+                  rx="10"
+                  fill="url(#lgDash)"
+                />
+                <rect
+                  x="13"
+                  y="13"
+                  width="14"
+                  height="14"
+                  rx="3"
+                  fill="none"
+                  stroke="#FFFFFF"
+                  stroke-width="2"
+                />
+                <polyline
+                  points="15,21 18,24 25,17"
+                  fill="none"
+                  stroke="#FFFFFF"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="sidebar__brand">
+            <span class="sidebar__brand-name">TaskMaster</span>
+          </div>
+        </div>
+
+        <div class="sidebar__user">
+          <div class="sidebar__avatar">M</div>
+          <div class="sidebar__user-text">
+            <div class="sidebar__user-name" id="sidebarUserName">Mo</div>
+            <div class="sidebar__user-email" id="sidebarUserEmail">
+              john@quantexa.com
+            </div>
+          </div>
+        </div>
+
+        <nav class="sidebar__nav">
+          <a href="#" class="sidebar__link sidebar__link--active">
+            <span class="sidebar__icon sidebar__icon--dashboard"></span>
+            Dashboard
+          </a>
+          <a href="#" class="sidebar__link">
+            <span class="sidebar__icon sidebar__icon--tasks"></span>
+            Tasks
+          </a>
+          <a href="#" class="sidebar__link">
+            <span class="sidebar__icon sidebar__icon--community"></span>
+            Community
+          </a>
+          <a href="#" class="sidebar__link">
+            <span class="sidebar__icon sidebar__icon--expenses"></span>
+            Expenses
+          </a>
+          <a href="#" class="sidebar__link">
+            <span class="sidebar__icon sidebar__icon--notes"></span>
+            Notes
+          </a>
+          <a href="#" class="sidebar__link">
+            <span class="sidebar__icon sidebar__icon--settings"></span>
+            Settings
+          </a>
+        </nav>
+
+        <button class="sidebar__logout" id="btnLogout">
+          <span class="sidebar__icon sidebar__icon--logout"></span>
+          Logout
+        </button>
+      </aside>
+
+      <main class="main">
+        <header class="main__header">
+          <div class="main__titles">
+            <h1 class="main__greeting" id="mainGreeting">
+              Good morning, Mo!
+            </h1>
+            <p class="main__subtitle">
+              Here’s what’s happening with your productivity today
+            </p>
+          </div>
+        </header>
+
+        <section class="stats">
+          <div class="stat-card">
+            <div class="stat-card__icon stat-card__icon--tasks"></div>
+            <div class="stat-card__title">Active Tasks</div>
+            <div class="stat-card__value">0</div>
+            <div class="stat-card__meta">0 completed</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-card__icon stat-card__icon--expenses"></div>
+            <div class="stat-card__title">Total Expenses</div>
+            <div class="stat-card__value">$0.00</div>
+            <div class="stat-card__meta">This period</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-card__icon stat-card__icon--notes"></div>
+            <div class="stat-card__title">Total Notes</div>
+            <div class="stat-card__value">0</div>
+            <div class="stat-card__meta">Saved notes</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-card__icon stat-card__icon--completion"></div>
+            <div class="stat-card__title">Completion Rate</div>
+            <div class="stat-card__value">0%</div>
+            <div class="stat-card__meta">Task completion</div>
+          </div>
+        </section>
+
+        <section class="grid">
+          <div class="panel">
+            <div class="panel__header">
+              <div class="panel__title">
+                <span class="panel__icon panel__icon--clock"></span>
+                Recent Tasks
+              </div>
+            </div>
+            <div class="panel__body panel__body--empty">
+              <div class="empty-state">
+                <div class="empty-state__icon"></div>
+                <div class="empty-state__text">No tasks yet!</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="panel">
+            <div class="panel__header">
+              <div class="panel__title">
+                <span class="panel__icon panel__icon--trend"></span>
+                Quick Actions
+              </div>
+            </div>
+            <div class="panel__body panel__body--list">
+              <button class="action">
+                <span class="action__icon action__icon--task"></span>
+                <div class="action__text">
+                  <div class="action__title">Create New Task</div>
+                  <div class="action__subtitle">Add a task to your list</div>
+                </div>
+              </button>
+              <button class="action">
+                <span class="action__icon action__icon--expense"></span>
+                <div class="action__text">
+                  <div class="action__title">Track Expense</div>
+                  <div class="action__subtitle">Record a new expense</div>
+                </div>
+              </button>
+              <button class="action">
+                <span class="action__icon action__icon--note"></span>
+                <div class="action__text">
+                  <div class="action__title">Write Note</div>
+                  <div class="action__subtitle">Capture your thoughts</div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
