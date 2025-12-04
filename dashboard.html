@@ -7,103 +7,11 @@
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/components.css" />
     <link rel="stylesheet" href="css/dashboard.css" />
-    <script src="js/auth.js" defer></script>
-    <script src="js/dashboard.js" defer></script>
   </head>
-  <body>
+  <body data-page="dashboard">
     <div class="app-shell">
-      <aside class="sidebar">
-        <div class="sidebar__header">
-          <div class="app-logo app-logo--sidebar">
-            <div class="app-logo__square">
-              <svg
-                viewBox="0 0 40 40"
-                class="app-logo__svg"
-                aria-hidden="true"
-              >
-                <defs>
-                  <linearGradient id="lgDash" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#316BFF" />
-                    <stop offset="100%" stop-color="#7B3EFF" />
-                  </linearGradient>
-                </defs>
-                <rect
-                  x="4"
-                  y="4"
-                  width="32"
-                  height="32"
-                  rx="10"
-                  fill="url(#lgDash)"
-                />
-                <rect
-                  x="13"
-                  y="13"
-                  width="14"
-                  height="14"
-                  rx="3"
-                  fill="none"
-                  stroke="#FFFFFF"
-                  stroke-width="2"
-                />
-                <polyline
-                  points="15,21 18,24 25,17"
-                  fill="none"
-                  stroke="#FFFFFF"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="sidebar__brand">
-            <span class="sidebar__brand-name">TaskMaster</span>
-          </div>
-        </div>
-
-        <div class="sidebar__user">
-          <div class="sidebar__avatar">M</div>
-          <div class="sidebar__user-text">
-            <div class="sidebar__user-name" id="sidebarUserName">Mo</div>
-            <div class="sidebar__user-email" id="sidebarUserEmail">
-              john@quantexa.com
-            </div>
-          </div>
-        </div>
-
-        <nav class="sidebar__nav">
-          <a href="#" class="sidebar__link sidebar__link--active">
-            <span class="sidebar__icon sidebar__icon--dashboard"></span>
-            Dashboard
-          </a>
-          <a href="#" class="sidebar__link">
-            <span class="sidebar__icon sidebar__icon--tasks"></span>
-            Tasks
-          </a>
-          <a href="#" class="sidebar__link">
-            <span class="sidebar__icon sidebar__icon--community"></span>
-            Community
-          </a>
-          <a href="#" class="sidebar__link">
-            <span class="sidebar__icon sidebar__icon--expenses"></span>
-            Expenses
-          </a>
-          <a href="#" class="sidebar__link">
-            <span class="sidebar__icon sidebar__icon--notes"></span>
-            Notes
-          </a>
-          <a href="#" class="sidebar__link">
-            <span class="sidebar__icon sidebar__icon--settings"></span>
-            Settings
-          </a>
-        </nav>
-
-        <button class="sidebar__logout" id="btnLogout">
-          <span class="sidebar__icon sidebar__icon--logout"></span>
-          Logout
-        </button>
-      </aside>
-
+      <div class="sidebar-container" id="sidebar-container"></div>
+      
       <main class="main">
         <header class="main__header">
           <div class="main__titles">
@@ -118,29 +26,37 @@
 
         <section class="stats">
           <div class="stat-card">
-            <div class="stat-card__icon stat-card__icon--tasks"></div>
-            <div class="stat-card__title">Active Tasks</div>
+            <div class="stat-card__header">
+            <span class="stat-card__title">Active Tasks</span>
+            <div class="stat-card__icon stat-card__icon--tasks"><img src="assets/icons/fluent--tasks-app-24-regular.png" class="icon-img"></div>
+            </div>
             <div class="stat-card__value">0</div>
             <div class="stat-card__meta">0 completed</div>
           </div>
 
           <div class="stat-card">
-            <div class="stat-card__icon stat-card__icon--expenses"></div>
-            <div class="stat-card__title">Total Expenses</div>
+            <div class="stat-card__header">
+            <span class="stat-card__title">Total Expenses</span>
+            <div class="stat-card__icon stat-card__icon--expenses"><img src="assets/icons/mynaui--dollar-solid.png" class="icon-img"></div>
+            </div>
             <div class="stat-card__value">$0.00</div>
             <div class="stat-card__meta">This period</div>
           </div>
 
           <div class="stat-card">
-            <div class="stat-card__icon stat-card__icon--notes"></div>
-            <div class="stat-card__title">Total Notes</div>
+            <div class="stat-card__header">
+            <span class="stat-card__title">Total Notes</span>
+            <div class="stat-card__icon stat-card__icon--notes"><img src="assets/icons/grommet-icons--notes.png" class="icon-img"></div>
+            </div>
             <div class="stat-card__value">0</div>
             <div class="stat-card__meta">Saved notes</div>
           </div>
 
           <div class="stat-card">
-            <div class="stat-card__icon stat-card__icon--completion"></div>
-            <div class="stat-card__title">Completion Rate</div>
+            <div class="stat-card__header">
+            <span class="stat-card__title">Completion Rate</span>
+            <div class="stat-card__icon stat-card__icon--completion"><img src="assets/icons/lucide--trending-up.png" class="icon-img"></div>
+            </div>
             <div class="stat-card__value">0%</div>
             <div class="stat-card__meta">Task completion</div>
           </div>
@@ -150,14 +66,14 @@
           <div class="panel">
             <div class="panel__header">
               <div class="panel__title">
-                <span class="panel__icon panel__icon--clock"></span>
+                <span class="panel__icon panel__icon--clock"><img src="assets/icons/si--clock-line (2).png" class="icon-img"></span>
                 Recent Tasks
               </div>
             </div>
             <div class="panel__body panel__body--empty">
               <div class="empty-state">
-                <div class="empty-state__icon"></div>
-                <div class="empty-state__text">No tasks yet!</div>
+                <div><img src="assets/icons/material-symbols-light--check-box-outline(grey).png" class="panel-img"></div>
+                <div class="empty-state__text">No tasks yet</div>
               </div>
             </div>
           </div>
@@ -165,27 +81,27 @@
           <div class="panel">
             <div class="panel__header">
               <div class="panel__title">
-                <span class="panel__icon panel__icon--trend"></span>
+                <span class="panel__icon panel__icon--trend"><img src="assets/icons/ph--trend-up.png" class="icon-img"></span>
                 Quick Actions
               </div>
             </div>
             <div class="panel__body panel__body--list">
               <button class="action">
-                <span class="action__icon action__icon--task"></span>
+                <span class="action__icon action__icon--task"><img src="assets/icons/material-symbols-light--check-box-outline(white).png" class="icon-img" ></span>
                 <div class="action__text">
                   <div class="action__title">Create New Task</div>
                   <div class="action__subtitle">Add a task to your list</div>
                 </div>
               </button>
               <button class="action">
-                <span class="action__icon action__icon--expense"></span>
+                <span class="action__icon action__icon--expense"><img src="assets/icons/mynaui--dollar-solid.png" class="icon-img"></span>
                 <div class="action__text">
                   <div class="action__title">Track Expense</div>
                   <div class="action__subtitle">Record a new expense</div>
                 </div>
               </button>
               <button class="action">
-                <span class="action__icon action__icon--note"></span>
+                <span class="action__icon action__icon--note"><img src="assets/icons/grommet-icons--notes.png" class="icon-img"></span>
                 <div class="action__text">
                   <div class="action__title">Write Note</div>
                   <div class="action__subtitle">Capture your thoughts</div>
@@ -196,5 +112,13 @@
         </section>
       </main>
     </div>
+    <script src="js/loader.js"></script>
+    <script>
+      window.addEventListener("load", () => {
+      loadComponent("sidebar-container", "/components/sidebar.html");
+      });
+    </script>
+    <script src="js/auth.js" defer></script>
+    <script src="js/dashboard.js" defer></script>
   </body>
 </html>
